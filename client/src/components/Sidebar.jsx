@@ -72,7 +72,7 @@ const Sidebar = () => {
 
             {/* Section lable  */}
             <div className='px-5 pt-5 pb-2'>
-                <p className='text-10px] font-semibold uppercase tracking-[0.12em] text-slate-500'>Navigation</p>
+                <p className='text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500'>Navigation</p>
             </div>
 
             {/* Navigation List  */}
