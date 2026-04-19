@@ -9,7 +9,7 @@ const Sidebar = () => {
     const [mobileOpen, setMobileOpen] = useState(false)
 
     useEffect(() => {
-        setUserName(dummyProfileData.firstname + " " + dummyProfileData.lastName)
+        setUserName(dummyProfileData.firstName + " " + dummyProfileData.lastName)
     }, [])
 
     //close mobile sidebar on route change
@@ -29,7 +29,7 @@ const Sidebar = () => {
 
     ]
 
-    const handleLogout = () =>{
+    const handleLogout = () => {
         window.location.href = "/login"
     }
 
@@ -94,8 +94,8 @@ const Sidebar = () => {
             {/* logOut link */}
             <div className='p-3 border-t border-white/7'>
                 <button onClick={handleLogout} className='flex items-center gap-3 w-full px-3 py-2.5 rounded-md text-[13px] font-medium text-slate-400 hover:text-rose-400 hover:bg-rose-500/8 transition-all duration-150'>
-                    <LogOutIcon className='w-4.25 h-4.25'/>
-                    <span>Log  out</span>
+                    <LogOutIcon className='w-4.25 h-4.25' />
+                    <span>Log out</span>
                 </button>
             </div>
         </>
@@ -117,10 +117,13 @@ const Sidebar = () => {
             </aside>
 
             {/* sidebar - mobile  */}
-            <aside className={`lg:hidden fixed inset-y-0 left-0 w-72 bg-linear-to-b from-slate-900 via-slate-900 to-slate-950 text-white z-50
-        flex flex-col transform transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-                {sidebarContent}
-            </aside>
+            {mobileOpen && (
+                <aside
+                    className="lg:hidden fixed inset-y-0 left-0 w-72 bg-linear-to-b from-slate-900 via-slate-900 to-slate-950 text-white z-50 flex flex-col transition-transform duration-300"
+                >
+                    {sidebarContent}
+                </aside>
+            )}
         </>
     )
 }
