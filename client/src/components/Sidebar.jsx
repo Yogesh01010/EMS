@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { href, Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { dummyProfileData } from '../assets/assets'
 import { CalendarIcon, ChevronRightIcon, DollarSignIcon, FileTextIcon, LayoutGridIcon, LogOutIcon, MenuIcon, SettingsIcon, UserIcon, XIcon } from 'lucide-react'
 
