@@ -19,7 +19,7 @@ const LeaveHistory = ({leaves, isAdmin, onUpdate}) => {
                             <th className='px-6 py-4'>Dates</th>
                             <th className='px-6 py-4'>Reason</th>
                             <th className='px-6 py-4'>Status</th>
-                            {isAdmin && <th className='text-center'>Action</th>}
+                            {isAdmin && <th className='text-center'>Actions</th>}
                         </tr>
                         </thead>
                         <tbody>

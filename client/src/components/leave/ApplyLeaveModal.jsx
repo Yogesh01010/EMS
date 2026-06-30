@@ -1,4 +1,4 @@
-import { CalendarIcon, FileText, X } from 'lucide-react';
+import { CalendarDays, CalendarIcon, FileText, Loader, Loader2, Send, X } from 'lucide-react';
 import React, { useState } from 'react'
 
 const ApplyLeaveModal = ({open, onClose, onSuccess }) => {
@@ -51,9 +51,41 @@ const ApplyLeaveModal = ({open, onClose, onSuccess }) => {
                         <CalendarIcon className='w-4 h-4 text-slate-400'/>
                        Duration
                     </label>
+
+                    <div className='grid grid-cols-2 gap-2'>
+                        <div>
+                            <span className='block text-xs text-slate-400 mb-1'>From</span>
+                            <input type='date' name='startDate' required min={minDate}/>
+                        </div>
+                    </div>
+                    <div className='grid grid-cols-2 gap-2'>
+                        <div>
+                            <span className='block text-xs text-slate-400 mb-1'>To</span>
+                            <input type='date' name='endDate' required min={minDate}/>
+                        </div>
+                    </div>
                 </div>
                 {/* reason  */}
+                <div>
+                    <label className='flex items-center gap-2 text-sm font-medium text-slate-700 mb-2'>
+                        Reason
+                    </label>
+
+                    <textarea name='reason' required rows={3} className='resize-none' placeholder='Briefly describe why you need leave...' />
+                </div>
                 {/* button  */}
+
+                <div className='flex gap-3 pt-2'>
+                    <button onClick={onClose} type='button' className='btn-secondary flex-1'>
+                        Cancel
+                    </button>
+
+                    <button onClick={onClose} disabled={loading} type='submit' className='btn-primary flex-1 flex items-center justify-center gap-2'>
+                        {loading ? <Loader2 className='w-4 h-4 animate-spin'/>
+                        : <Send/>}
+                        {loading ? 'Submitting...' : "Submit"}
+                    </button>
+                </div>
             </form>
         </div>
     </div>
