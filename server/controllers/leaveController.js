@@ -1,5 +1,6 @@
-import Employee from "../models/employee.js";
+import Employee from "../models/Employee.js";
 import LeaveApplication from "../models/LeaveApplication.js";
+import { inngest } from "../inngest/index.js";
 
 
 // Create leave
@@ -31,13 +32,20 @@ export const createLeave = async (req, res) => {
             return res.status(400).json({error: "End date cannot be before start date"});
         }
 
-        const leaveApplication = await LeaveApplication.create({
+        const leave = await LeaveApplication.create({
             employeeId: employee._id,
             type,
             startDate: new Date(startDate),
             endDate: new Date(endDate),
             reason,
             status: "PENDING",
+        })
+
+        await inngest.send({
+            name: "leave/pending",
+            data: {
+                LeaveApplicationId: leave._id,
+            },
         });
 
         return res.json({success: true, data: leave});
