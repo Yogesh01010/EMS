@@ -1,4 +1,4 @@
-import Employee from "../models/employee.js";
+import Employee from "../models/Employee.js";
 import Attendance from "../models/Attendance.js";
 import LeaveApplication from "../models/LeaveApplication.js";
 import { DEPARTMENTS } from "../constants/departments.js";
